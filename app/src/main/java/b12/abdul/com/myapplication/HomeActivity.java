@@ -26,7 +26,7 @@ DbOperations dbOperations;
         dbOperations = new DbOperations(this);
         dbOperations.openDb();
         //getDbData();
-        Uri uriSms = Uri.parse("content://sms/inbox");
+        /*Uri uriSms = Uri.parse("content://sms/inbox");
         Cursor cursor = getContentResolver().query(uriSms, null,null,null,null);
         adapter = new SimpleCursorAdapter(this,
                 android.R.layout.simple_list_item_2,
@@ -34,7 +34,7 @@ DbOperations dbOperations;
                 new String[]{"address","body"},
                 new int[]{android.R.id.text1,android.R.id.text2});
         ListView listView = findViewById(R.id.listviewdb);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter);*/
     }
 
     private void getDbData() {
