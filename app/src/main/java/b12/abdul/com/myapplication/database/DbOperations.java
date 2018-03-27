@@ -43,6 +43,10 @@ public class DbOperations {
         return  title+"\t"+subtitle;
 
     }
+
+    public Cursor readRows(){
+        return database.rawQuery("select * from entry",null);
+    }
     public void update(){}
     public void delete(){}
 }
