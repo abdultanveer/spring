@@ -91,4 +91,14 @@
         android:layout_below="@+id/buttonLogin"
         android:layout_marginTop="62dp" />
 
+    <Button
+        android:id="@+id/buttonsafr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:onClick="clickHandler"
+
+        android:text="safr" />
+
 </RelativeLayout>

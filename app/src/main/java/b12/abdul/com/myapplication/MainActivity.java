@@ -1,6 +1,7 @@
 package b12.abdul.com.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -63,20 +64,26 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
 
     public void clickHandler(View view) {
         switch (view.getId()){
-            case R.id.buttonLogin:
+                case R.id.buttonLogin:
 
-                String name = nameEditText.getText().toString();
+                    String name = nameEditText.getText().toString();
 
-                Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
-                hIntent.putExtra("mykey",name);
-                startActivity(hIntent);
+                    Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
+                    hIntent.putExtra("mykey",name);
+                    startActivity(hIntent);
 
-                // Toast.makeText(this,"spring people", Toast.LENGTH_SHORT).show();
-                /*TextView mTextView = findViewById(R.id.textViewResult);
-                mTextView.setText(name);*/
-                break;
-            case R.id.button2:
-                break;
+                    // Toast.makeText(this,"spring people", Toast.LENGTH_SHORT).show();
+                    /*TextView mTextView = findViewById(R.id.textViewResult);
+                    mTextView.setText(name);*/
+                    break;
+                case R.id.button2:
+                    Intent dIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1234568765"));
+                    startActivity(dIntent);
+                    break;
+                case R.id.buttonsafr:
+                    Intent thirdIntent = new Intent(MainActivity.this,ThirdActivity.class);
+                    startActivityForResult(thirdIntent,003);
+                    break;
         }
 
     }
@@ -101,6 +108,15 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        String three = data.getStringExtra("thirdkey");
+        TextView mTextView = findViewById(R.id.textViewResult);
+        mTextView.setText(three);
 
     }
 }
